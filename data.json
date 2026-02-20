@@ -10,6 +10,7 @@
     "currentRole": "Senior ML Engineer",
     "totalYearsExperience": 6,
     "currentRoleYears": 2,
+    "linkedinUrl": "https://www.linkedin.com/in/williamhgates", 
     "profileImage": "https://ui-avatars.com/api/?name=Priya+Sharma&background=random"
   },
   {
@@ -23,19 +24,7 @@
     "currentRole": "Software Engineer",
     "totalYearsExperience": 4,
     "currentRoleYears": 1,
+    "linkedinUrl": "https://www.linkedin.com/in/sundarpichai",
     "profileImage": "https://ui-avatars.com/api/?name=Rahul+Verma&background=random"
-  },
-  {
-    "id": "3",
-    "name": "Anita Desai",
-    "headline": "Delphix/TDM Engineer | Database Architect",
-    "location": "Chennai",
-    "distance": 10,
-    "skills": ["Delphix", "TDM", "Oracle", "SQL"],
-    "currentCompany": "DataWorks Inc.",
-    "currentRole": "TDM Specialist",
-    "totalYearsExperience": 8,
-    "currentRoleYears": 3,
-    "profileImage": "https://ui-avatars.com/api/?name=Anita+Desai&background=random"
   }
 ]

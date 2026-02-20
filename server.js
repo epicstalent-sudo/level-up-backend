@@ -7,7 +7,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 1. Initialize Lunr Index (Fallback for Elasticsearch)
+// பிரவுசரில் லிங்கை கிளிக் செய்தால் இந்த மெசேஜ் வரும் (உங்களுக்கான அப்டேட்)
+app.get('/', (req, res) => {
+    res.send('🚀 LEVEL UP X-RAY BACKEND IS LIVE AND RUNNING!');
+});
+
+// 1. Initialize Lunr Index
 const idx = lunr(function () {
   this.ref('id');
   this.field('headline');
@@ -24,38 +29,30 @@ const idx = lunr(function () {
   }, this);
 });
 
-// Scoring Algorithm Math Formula Reference:
-// finalScore = (booleanMatchScore) + (skillMatchCount * 5) - (distancePenalty)
-
+// 2. Search API Logic
 app.post('/api/search', (req, res) => {
   const { query, location, skills, maxDistance, minExp } = req.body;
 
-  // 1. Execute Boolean Search if query exists
   let searchResults = [];
   if (query) {
-    // Basic formatting for Lunr: convert OR to space, AND to +
     let formattedQuery = query.replace(/\bOR\b/gi, '').replace(/\bAND\b/gi, '+');
     try {
       const lunrResults = idx.search(formattedQuery);
       searchResults = lunrResults.map(r => candidates.find(c => c.id === r.ref));
     } catch (e) {
-      searchResults = candidates; // fallback if query parsing fails
+      searchResults = candidates;
     }
   } else {
     searchResults = [...candidates];
   }
 
-  // 2. Apply Filters (Distance, Location, Exp)
   let filtered = searchResults.filter(c => {
     let locMatch = location ? c.location.toLowerCase().includes(location.toLowerCase()) : true;
     let expMatch = minExp ? c.totalYearsExperience >= minExp : true;
-    // Distance Match Logic
     let distMatch = maxDistance ? c.distance <= maxDistance : true;
-    
     return locMatch && expMatch && distMatch;
   });
 
-  // 3. Calculate Skill Match & Ranking
   const ranked = filtered.map(c => {
     let matchedSkills = 0;
     if (skills && skills.length > 0) {
@@ -64,10 +61,10 @@ app.post('/api/search', (req, res) => {
       ).length;
     }
     return { ...c, skillMatchCount: matchedSkills };
-  }).sort((a, b) => b.skillMatchCount - a.skillMatchCount); // Rank by skills
+  }).sort((a, b) => b.skillMatchCount - a.skillMatchCount);
 
   res.json({ count: ranked.length, results: ranked });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 LEVEL UP API running on port ${PORT}`));
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => console.log(`🚀 API running on port ${PORT}`));

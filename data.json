@@ -1,0 +1,41 @@
+[
+  {
+    "id": "1",
+    "name": "Priya Sharma",
+    "headline": "AWS ML Developer | Python | TensorFlow",
+    "location": "Chennai",
+    "distance": 15,
+    "skills": ["AWS", "Machine Learning", "Python", "TensorFlow"],
+    "currentCompany": "Tech Innovations",
+    "currentRole": "Senior ML Engineer",
+    "totalYearsExperience": 6,
+    "currentRoleYears": 2,
+    "profileImage": "https://ui-avatars.com/api/?name=Priya+Sharma&background=random"
+  },
+  {
+    "id": "2",
+    "name": "Rahul Verma",
+    "headline": ".NET Full Stack Developer",
+    "location": "Bangalore",
+    "distance": 30,
+    "skills": ["C#", ".NET", "React", "SQL"],
+    "currentCompany": "Global Soft",
+    "currentRole": "Software Engineer",
+    "totalYearsExperience": 4,
+    "currentRoleYears": 1,
+    "profileImage": "https://ui-avatars.com/api/?name=Rahul+Verma&background=random"
+  },
+  {
+    "id": "3",
+    "name": "Anita Desai",
+    "headline": "Delphix/TDM Engineer | Database Architect",
+    "location": "Chennai",
+    "distance": 10,
+    "skills": ["Delphix", "TDM", "Oracle", "SQL"],
+    "currentCompany": "DataWorks Inc.",
+    "currentRole": "TDM Specialist",
+    "totalYearsExperience": 8,
+    "currentRoleYears": 3,
+    "profileImage": "https://ui-avatars.com/api/?name=Anita+Desai&background=random"
+  }
+]
